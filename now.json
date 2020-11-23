@@ -1,0 +1,28 @@
+{
+  "name": "avataro",
+  "version": 0.1,
+  "public": true,
+  "env": {
+    "YOUTUBE_API_KEY": "@avataro.youtube_api_key"
+  },
+  "builds": [
+    {
+      "src": "src/index.js",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/robots.txt",
+      "status": 204
+    },
+    {
+      "src": "/favicon.ico",
+      "status": 204
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/src/index.js"
+    }
+  ]
+}

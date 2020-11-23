@@ -1,0 +1,140 @@
+{
+  "name": "avataro",
+  "description": "Get unified user avatar.",
+  "homepage": "https://avataro.now.sh",
+  "version": "2.2.27",
+  "main": "src/index.js",
+  "bin": {
+    "avataro": "bin/server"
+  },
+  "author": {
+    "email": "hebertcisco@outlook.com",
+    "name": "Hebert Cisco",
+    "url": "https://hebertbarros.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hebertcisco/avataro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hebertcisco/avataro/issues"
+  },
+  "keywords": [
+    "avatar",
+    "clearbit",
+    "domain",
+    "email",
+    "facebook",
+    "github",
+    "gravatar",
+    "instagram",
+    "telegram",
+    "twitter",
+    "youtube"
+  ],
+  "dependencies": {
+    "beauty-error": "~1.2.5",
+    "cacheable-response": "~2.1.0",
+    "cheerio": "~1.0.0-rc.3",
+    "compression": "~1.7.4",
+    "cors": "~2.8.5",
+    "debug-logfmt": "~1.0.4",
+    "express": "~4.17.1",
+    "got": "~11.8.0",
+    "helmet": "~4.2.0",
+    "is-absolute-url": "~3.0.3",
+    "is-email-like": "~1.0.0",
+    "is-url-http": "~2.2.1",
+    "jsdom": "~16.4.0",
+    "lodash": "~4.17.20",
+    "memoize-one": "~5.1.1",
+    "morgan": "~1.10.0",
+    "p-any": "~3.0.0",
+    "p-map": "~4.0.0",
+    "p-reflect": "~2.1.0",
+    "p-timeout": "~3.2.0",
+    "reachable-url": "~1.4.13",
+    "url-regex": "~5.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "latest",
+    "@commitlint/config-conventional": "latest",
+    "browser-sync": "latest",
+    "conventional-github-releaser": "latest",
+    "finepack": "latest",
+    "git-authors-cli": "latest",
+    "git-dirty": "latest",
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-concat": "latest",
+    "gulp-cssnano": "latest",
+    "gulp-sass": "latest",
+    "gulp-strip-css-comments": "latest",
+    "gulp-uglify": "latest",
+    "hack": "latest",
+    "husky": "latest",
+    "lint-staged": "latest",
+    "npm-check-updates": "latest",
+    "nyc": "latest",
+    "prettier-standard": "latest",
+    "prismjs": "latest",
+    "standard": "latest",
+    "standard-markdown": "latest",
+    "standard-version": "latest",
+    "untracked": "latest"
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "files": [
+    "bin",
+    "gulpfile.js",
+    "public",
+    "src"
+  ],
+  "scripts": {
+    "build": "gulp build && untracked > .nowignore",
+    "clean": "rm -rf node_modules",
+    "deploy": "now -e NODE_ENV=production --public && now alias && now rm avataro --safe --yes",
+    "dev": "TZ=UTC NODE_ENV=development DEBUG=avataro* node src/server.js",
+    "dev:docs": "concurrently \"npm run dev:docs:server\" \"npm run dev:docs:src\"",
+    "dev:docs:server": "cd public && browser-sync start --server --files \"index.html, **/*.*\"",
+    "dev:docs:src": "gulp",
+    "lint": "standard-markdown && standard",
+    "postrelease": "npm run release:tags && npm run release:github",
+    "prerelease": "npm run update:check",
+    "pretest": "npm run lint",
+    "pretty": "prettier-standard index.js {core,test,bin}/**/*.js --single-quote",
+    "release": "git-authors-cli && git add package.json && standard-version -a",
+    "release:github": "conventional-github-releaser -p angular",
+    "release:tags": "git push --follow-tags origin HEAD:master",
+    "start": "TZ=UTC NODE_ENV=production DEBUG=avataro* node src/server.js",
+    "test": "exit 0",
+    "update": "ncu -a",
+    "update:check": "ncu -- --error-level 2"
+  },
+  "private": true,
+  "license": "MIT",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "package.json": [
+      "finepack"
+    ],
+    "*.js": [
+      "prettier-standard"
+    ],
+    "*.md": [
+      "standard-markdown"
+    ]
+  }
+}
