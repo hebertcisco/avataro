@@ -16,4 +16,4 @@
 **avataro.now.sh** © [Hebert Cisco](https://hebertbarros.me), released under the [MIT](https://github.com/Hebertcisco/avataro.now.sh/blob/master/LICENSE.md) License.<br>
 Authored and maintained by Hebert Cisco with help from [contributors](https://github.com/Hebertcisco/avataro.now.sh/contributors).
 
-> [hebertbarros.me](https://hebertbarros.me) · GitHub [Hebert Cisco](https://github.com/hebertcisco) · Twitter [@Kikobeats](https://twitter.com/Kikobeats)
+> [hebertbarros.me](https://hebertbarros.me) · GitHub [Hebert Cisco](https://github.com/hebertcisco) · Twitter [@hebertcisco](https://twitter.com/hebertcisco)

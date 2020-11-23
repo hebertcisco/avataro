@@ -1,6 +1,6 @@
 {
   "name": "avataro",
-  "version": 0.1,
+  "version": 1,
   "public": true,
   "env": {
     "YOUTUBE_API_KEY": "@avataro.youtube_api_key"

@@ -2,7 +2,7 @@
   "name": "avataro",
   "description": "Get unified user avatar.",
   "homepage": "https://avataro.now.sh",
-  "version": "2.2.27",
+  "version": "0.1",
   "main": "src/index.js",
   "bin": {
     "avataro": "bin/server"
